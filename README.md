@@ -46,7 +46,7 @@ Please refer to the help documentation how to use each module.
 
 ## Demo
 
-[![basic-django-web-api]()]()
+[![basic-django-web-api](http://img.youtube.com/vi/gVd-0EzukDk/maxresdefault.jpg)](https://www.youtube.com/watch?v=gVd-0EzukDk)
 
 ## Contact
 
