@@ -21,6 +21,10 @@ from django.urls import include
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.views import TokenRefreshView
 
+from drf_spectacular.views import SpectacularAPIView
+from drf_spectacular.views import SpectacularRedocView
+from drf_spectacular.views import SpectacularSwaggerView
+
 API_PREFIX = "api/v1/"
 
 urlpatterns = [
@@ -30,4 +34,15 @@ urlpatterns = [
     path(f"{API_PREFIX}healthcheck/", include("healthcheck.urls")),
     path(f"{API_PREFIX}todo/", include("todo.urls")),
     path(f"{API_PREFIX}auths/", include("auths.urls")),
+    path(f"{API_PREFIX}schema/", SpectacularAPIView.as_view(), name="schema"),
+    path(
+        f"{API_PREFIX}docs/",
+        SpectacularSwaggerView.as_view(url_name="schema"),
+        name="swagger-ui",
+    ),
+    path(
+        f"{API_PREFIX}redoc/",
+        SpectacularRedocView.as_view(url_name="schema"),
+        name="redoc",
+    ),
 ]
